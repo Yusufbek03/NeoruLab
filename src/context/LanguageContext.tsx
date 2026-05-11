@@ -32,6 +32,7 @@ const translations: Record<Language, Record<string, string>> = {
     heroSub: "NeoruLab — digital-агентство нового поколения. Строим умные продукты: от лендингов до AI-систем, которые работают за вас 24/7.",
     viewCases: "Смотреть кейсы",
     getKP: "Получить КП",
+    heroCodeStatus: "# ✓ Запущено успешно",
     
     // Stats
     stat1: "Проектов сдано",
@@ -61,10 +62,13 @@ const translations: Record<Language, Record<string, string>> = {
     srv3Item2: "Автоматизация на n8n / Make",
     srv3Item3: "Парсинг и обработка данных",
     srv3Item4: "RAG-системы на базе знаний",
+    srvGPT: "GPT-агенты",
+    srvCRM: "CRM-интеграции",
     
     // Process
     howWeWork: "Как мы работаем",
-    transparentProcess: "Прозрачный процесс",
+    transparentProcess1: "Прозрачный",
+    transparentProcess2: "процесс",
     step1Title: "Бриф и анализ",
     step1Desc: "Изучаем бизнес, цели и задачи. Готовим техническое задание и оценку.",
     step2Title: "Дизайн и прототип",
@@ -84,11 +88,16 @@ const translations: Record<Language, Record<string, string>> = {
     whyUsStat2: "Средний срок запуска MVP",
     whyUsStat3: "Реализованных проектов",
     whyUsStat4: "Клиентов рекомендуют нас",
+    whyUsDiscuss: "Обсудить задачу",
+    days: "дн",
     
     // Testimonials
     testimonialsTag: "Отзывы",
     testimonialsTitle1: "Что говорят",
     testimonialsTitle2: "клиенты",
+    test1Text: "NeoruLab сделали нам AI-бота для клиники за 2 недели. Пациенты записываются в 3 раза быстрее, нагрузка на администраторов упала вдвое. Команда всегда на связи и объясняет каждое решение.",
+    test2Text: "Заказали лендинг и Telegram-бота для онлайн-курсов. Запустили за 10 дней. Автоворонка в боте подняла доходимость до вебинара с 40% до 78%. Рекомендую без оговорок.",
+    test3Text: "Автоматизировали обработку заявок с помощью AI на n8n. Раньше менеджер тратил 4 часа в день на ручную сортировку — теперь система делает это мгновенно. ROI вышел за 2 месяца.",
     
     // Contact
     contactTag: "Связаться",
@@ -104,8 +113,45 @@ const translations: Record<Language, Record<string, string>> = {
     formSubmit: "Отправить заявку",
     formSending: "Отправка...",
     formSelect: "Выберите услугу",
+    formMulti: "Несколько услуг",
+    formSuccess: "Спасибо! Ваша заявка принята, мы свяжемся с вами в течение 24 часов.",
+    formError: "Произошла ошибка. Попробуйте снова.",
+    valName: "Минимум 2 символа",
+    valContact: "Введите email или @username",
+    valService: "Выберите услугу",
+    valMessage: "Опишите задачу подробнее (минимум 10 символов)",
+    phName: "Иван Иванов",
+    phCompany: "ООО Рога и Копыта",
+    phContact: "ivan@company.ru или @username",
+    phMessage: "Опишите задачу, бюджет и сроки...",
+    
+    // Portfolio
+    portfolio: "Портфолио",
+    our: "Наши",
+    casesTitle: "кейсы",
+    allProjects: "Все проекты",
+    viewCase: "Смотреть кейс",
+    chatbotHi: "Привет! Я AI-ассистент Neoru. 👋",
+    chatbotConsult: "Хочу консультацию",
+    
+    // Blog
+    ourBlog: "Наш",
+    blogTitle: "блог",
+    allArticles: "Все статьи",
+    
+    // Ticker
+    tick1: "Сайты",
+    tick2: "Telegram боты",
+    tick3: "AI-автоматизация",
+    tick4: "GPT-агенты",
+    tick5: "n8n / Make",
+    tick6: "React / Next.js",
+    tick7: "CRM-интеграции",
     
     // Footer
+    company: "Компания",
+    about: "О нас",
+    careers: "Карьера",
     footerDesc: "Цифровое агентство нового поколения. Строим сайты, ботов и AI-системы, которые работают на ваш бизнес 24/7.",
     newsletter: "Рассылка",
     newsletterDesc: "Кейсы, инсайты и полезные материалы по AI и разработке — раз в неделю.",
@@ -132,6 +178,7 @@ const translations: Record<Language, Record<string, string>> = {
     heroSub: "NeoruLab — yangi avlod digital-agentligi. Landing sahifalardan tortib, 24/7 ishlaydigan AI-tizimlarigacha aqlli mahsulotlar yaratamiz.",
     viewCases: "Keyslarni ko'rish",
     getKP: "KP olish",
+    heroCodeStatus: "# ✓ Muvaffaqiyatli ishga tushirildi",
     
     // Stats
     stat1: "Topshirilgan loyihalar",
@@ -161,10 +208,13 @@ const translations: Record<Language, Record<string, string>> = {
     srv3Item2: "n8n / Make yordamida avtomatlashtirish",
     srv3Item3: "Ma'lumotlarni yig'ish va qayta ishlash",
     srv3Item4: "Bilimlar bazasi asosidagi RAG-tizimlar",
+    srvGPT: "GPT-agentlar",
+    srvCRM: "CRM integratsiyalari",
     
     // Process
     howWeWork: "Biz qanday ishlaymiz",
-    transparentProcess: "Shaffof jarayon",
+    transparentProcess1: "Shaffof",
+    transparentProcess2: "jarayon",
     step1Title: "Brif va tahlil",
     step1Desc: "Biznesni, maqsad va vazifalarni o'rganamiz. Texnik topshiriq va baholashni tayyorlaymiz.",
     step2Title: "Dizayn va prototip",
@@ -184,11 +234,16 @@ const translations: Record<Language, Record<string, string>> = {
     whyUsStat2: "MVP ishga tushirishning o'rtacha muddati",
     whyUsStat3: "Amalga oshirilgan loyihalar",
     whyUsStat4: "Mijozlar bizni tavsiya qilishadi",
+    whyUsDiscuss: "Vazifani muhokama qilish",
+    days: "kun",
     
     // Testimonials
     testimonialsTag: "Sharhlar",
     testimonialsTitle1: "Mijozlar nima",
     testimonialsTitle2: "deyishadi",
+    test1Text: "NeoruLab bizga klinika uchun 2 hafta ichida AI-bot tayyorlab berdi. Bemorlar 3 baravar tezroq navbatga yozilmoqda, administratorlar yuklamasi ikki baravar kamaydi. Jamoa doim aloqada.",
+    test2Text: "Onlayn kurslar uchun landing va Telegram-bot buyurtma qildik. 10 kunda ishga tushirildi. Botdagi avtovoronka vebinarga keluvchilar sonini 40% dan 78% gacha oshirdi.",
+    test3Text: "n8n da AI yordamida arizalarni qayta ishlashni avtomatlashtirdik. Ilgari menejer kuniga 4 soat vaqt sarflardi — endi tizim buni bir zumda amalga oshiradi. ROI 2 oyda chiqdi.",
     
     // Contact
     contactTag: "Bog'lanish",
@@ -204,8 +259,45 @@ const translations: Record<Language, Record<string, string>> = {
     formSubmit: "Ariza yuborish",
     formSending: "Yuborilmoqda...",
     formSelect: "Xizmatni tanlang",
+    formMulti: "Bir nechta xizmatlar",
+    formSuccess: "Rahmat! Arizangiz qabul qilindi, 24 soat ichida bog'lanamiz.",
+    formError: "Xatolik yuz berdi. Qayta urinib ko'ring.",
+    valName: "Kamida 2 ta belgi",
+    valContact: "Email yoki @username kiriting",
+    valService: "Xizmatni tanlang",
+    valMessage: "Vazifa haqida batafsilroq yozing (kamida 10 ta belgi)",
+    phName: "Ivan Ivanov",
+    phCompany: "MChJ Super Biznes",
+    phContact: "ivan@company.uz yoki @username",
+    phMessage: "Vazifa, byudjet va muddatlarni yozing...",
+    
+    // Portfolio
+    portfolio: "Portfoliomiz",
+    our: "Bizning",
+    casesTitle: "keyslarimiz",
+    allProjects: "Barcha loyihalar",
+    viewCase: "Keysni ko'rish",
+    chatbotHi: "Salom! Men Neoru AI-yordamchisiman. 👋",
+    chatbotConsult: "Maslahat olmoqchiman",
+    
+    // Blog
+    ourBlog: "Bizning",
+    blogTitle: "blog",
+    allArticles: "Barcha maqolalar",
+    
+    // Ticker
+    tick1: "Saytlar",
+    tick2: "Telegram botlar",
+    tick3: "AI-avtomatlashtirish",
+    tick4: "GPT-agentlar",
+    tick5: "n8n / Make",
+    tick6: "React / Next.js",
+    tick7: "CRM integratsiyalari",
     
     // Footer
+    company: "Kompaniya",
+    about: "Biz haqimizda",
+    careers: "Karyera",
     footerDesc: "Yangi avlod raqamli agentligi. Biznesingiz uchun 24/7 ishlaydigan saytlar, botlar va AI tizimlarini quramiz.",
     newsletter: "Xabarnoma",
     newsletterDesc: "AI va dasturlash bo'yicha keyslar va foydali materiallar — haftada bir marta.",

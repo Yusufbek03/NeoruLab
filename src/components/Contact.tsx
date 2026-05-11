@@ -6,16 +6,17 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { submitLead } from "@/app/actions";
 import { useLanguage } from "@/context/LanguageContext";
+import { Mail, Send, Video, MessageCircle } from "lucide-react";
 
 export default function Contact() {
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
 
   const formSchema = z.object({
-    name: z.string().min(2, language === "ru" ? "Минимум 2 символа" : "Kamida 2 ta belgi"),
+    name: z.string().min(2, t("valName")),
     company: z.string().optional(),
-    contact: z.string().min(5, language === "ru" ? "Введите email или @username" : "Email yoki @username kiriting"),
-    service: z.string().min(1, language === "ru" ? "Выберите услугу" : "Xizmatni tanlang"),
-    message: z.string().min(10, language === "ru" ? "Опишите задачу подробнее (минимум 10 символов)" : "Vazifa haqida batafsilroq yozing (kamida 10 ta belgi)"),
+    contact: z.string().min(5, t("valContact")),
+    service: z.string().min(1, t("valService")),
+    message: z.string().min(10, t("valMessage")),
   });
 
   type FormValues = z.infer<typeof formSchema>;
@@ -30,13 +31,26 @@ export default function Contact() {
   });
 
   const onSubmit = async (data: FormValues) => {
-    // Simulate backend processing since Server Actions are not supported in static exports
-    console.log("Form submitted locally:", data);
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    
-    alert(language === "ru" ? "Спасибо! Ваша заявка принята, мы свяжемся с вами в течение 24 часов." : "Rahmat! Arizangiz qabul qilindi, 24 soat ichida bog'lanamiz.");
-    reset();
+    try {
+      const result = await submitLead(data);
+      if (result.success) {
+        alert(t("formSuccess"));
+        reset();
+      } else {
+        alert(t("formError"));
+      }
+    } catch (error) {
+      console.error("Submission error:", error);
+      alert(t("formError"));
+    }
   };
+
+  const socials = [
+    { name: "Email", icon: <Mail size={16} />, href: "mailto:hello@neurulab.ru", label: "hello@neurulab.ru" },
+    { name: "Telegram", icon: <Send size={16} />, href: "https://t.me/neurulab", label: "@neurulab" },
+    { name: "Instagram", icon: <MessageCircle size={16} />, href: "#", label: "@neurulab" },
+    { name: "TikTok", icon: <Video size={16} />, href: "#", label: "@neurulab" },
+  ];
 
   return (
     <section id="contact" className="section bg-bg px-6 lg:px-[60px] py-[100px] relative">
@@ -53,15 +67,24 @@ export default function Contact() {
             {t("contactDesc")}
           </p>
           
-          <div className="mt-9 flex flex-col gap-3.5">
-            <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-lg border border-border-accent flex items-center justify-center text-[16px] bg-bg-secondary/50">✉️</div>
-              <span className="font-mono text-[13px] text-text-muted hover:text-accent-green transition-colors cursor-pointer">hello@neurulab.ru</span>
-            </div>
-            <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-lg border border-border-accent flex items-center justify-center text-[16px] bg-bg-secondary/50">✈️</div>
-              <span className="font-mono text-[13px] text-text-muted hover:text-accent-green transition-colors cursor-pointer">@neurulab</span>
-            </div>
+          <div className="mt-9 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {socials.map((social) => (
+              <a 
+                key={social.name} 
+                href={social.href} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 p-3 rounded-xl border border-border-dim bg-bg-secondary/30 transition-all hover:border-accent-green hover:bg-bg-secondary group"
+              >
+                <div className="w-9 h-9 rounded-lg border border-border-accent flex items-center justify-center text-[16px] bg-bg-tertiary/50 group-hover:text-accent-green transition-colors">
+                  {social.icon}
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-[10px] text-text-muted uppercase font-mono">{social.name}</span>
+                  <span className="font-mono text-[13px] text-text-primary group-hover:text-accent-green transition-colors">{social.label}</span>
+                </div>
+              </a>
+            ))}
           </div>
         </div>
 
@@ -78,7 +101,7 @@ export default function Contact() {
                 <label className="font-mono text-[11px] text-text-muted tracking-wider uppercase">{t("formName")}</label>
                 <input
                   {...register("name")}
-                  placeholder={language === "ru" ? "Иван Иванов" : "Ivan Ivanov"}
+                  placeholder={t("phName")}
                   className={`bg-bg-tertiary border ${errors.name ? 'border-red-500/50' : 'border-border-dim'} rounded-lg px-4 py-3 font-sans text-[14px] text-text-primary outline-none focus:border-accent-green transition-colors placeholder:text-[#2D3A47]`}
                 />
                 {errors.name && <span className="text-red-500 text-[10px] font-mono">{errors.name.message}</span>}
@@ -87,7 +110,7 @@ export default function Contact() {
                 <label className="font-mono text-[11px] text-text-muted tracking-wider uppercase">{t("formCompany")}</label>
                 <input
                   {...register("company")}
-                  placeholder={language === "ru" ? "ООО Рога и Копыта" : "MChJ Super Biznes"}
+                  placeholder={t("phCompany")}
                   className="bg-bg-tertiary border border-border-dim rounded-lg px-4 py-3 font-sans text-[14px] text-text-primary outline-none focus:border-accent-green transition-colors placeholder:text-[#2D3A47]"
                 />
               </div>
@@ -97,7 +120,7 @@ export default function Contact() {
               <label className="font-mono text-[11px] text-text-muted tracking-wider uppercase">{t("formContact")}</label>
               <input
                 {...register("contact")}
-                placeholder={language === "ru" ? "ivan@company.ru или @username" : "ivan@company.uz yoki @username"}
+                placeholder={t("phContact")}
                 className={`bg-bg-tertiary border ${errors.contact ? 'border-red-500/50' : 'border-border-dim'} rounded-lg px-4 py-3 font-sans text-[14px] text-text-primary outline-none focus:border-accent-green transition-colors placeholder:text-[#2D3A47]`}
               />
               {errors.contact && <span className="text-red-500 text-[10px] font-mono">{errors.contact.message}</span>}
@@ -113,7 +136,7 @@ export default function Contact() {
                 <option value="Разработка сайта" className="bg-bg-tertiary">{t("srv1Title")}</option>
                 <option value="Telegram-бот" className="bg-bg-tertiary">{t("srv2Title")}</option>
                 <option value="AI-автоматизация" className="bg-bg-tertiary">{t("srv3Title")}</option>
-                <option value="Несколько услуг" className="bg-bg-tertiary">{language === "ru" ? "Несколько услуг" : "Bir nechta xizmatlar"}</option>
+                <option value="Несколько услуг" className="bg-bg-tertiary">{t("formMulti")}</option>
               </select>
               {errors.service && <span className="text-red-500 text-[10px] font-mono">{errors.service.message}</span>}
             </div>
@@ -123,7 +146,7 @@ export default function Contact() {
               <textarea
                 {...register("message")}
                 rows={4}
-                placeholder={language === "ru" ? "Опишите задачу, бюджет и сроки..." : "Vazifa, byudjet va muddatlarni yozing..."}
+                placeholder={t("phMessage")}
                 className={`bg-bg-tertiary border ${errors.message ? 'border-red-500/50' : 'border-border-dim'} rounded-lg px-4 py-3 font-sans text-[14px] text-text-primary outline-none focus:border-accent-green transition-colors resize-none placeholder:text-[#2D3A47]`}
               />
               {errors.message && <span className="text-red-500 text-[10px] font-mono">{errors.message.message}</span>}

@@ -15,7 +15,7 @@ export default function WhyUs() {
     },
     {
       num: "7",
-      suffix: t("language") === "ru" ? "дн" : "kun",
+      suffix: t("days"),
       label: t("whyUsStat2"),
       icon: "⚡",
     },
@@ -49,7 +49,7 @@ export default function WhyUs() {
             {t("whyUsDesc")}
           </p>
           <a href="#contact" className="inline-flex items-center gap-[7px] px-[22px] py-[9px] rounded-md font-sans text-[13.5px] font-semibold no-underline bg-accent-green text-black transition-all hover:bg-accent-green-dark hover:-translate-y-px hover:shadow-[0_0_24px_rgba(0,229,160,0.4)] mt-8">
-            {t("language") === "ru" ? "Обсудить задачу" : "Vazifani muhokama qilish"} →
+            {t("whyUsDiscuss")} →
           </a>
         </div>
 

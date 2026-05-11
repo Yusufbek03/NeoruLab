@@ -132,8 +132,8 @@ export default function Hero() {
                 <span className="text-text-primary">()</span>
               </div>
               <div>
-                <span className="text-text-muted"># ✓ Запущено</span>{" "}
-                <span className="text-accent-green">успешно</span>{" "}
+                <span className="text-text-muted">{t("heroCodeStatus").split(" ")[0]} {t("heroCodeStatus").split(" ")[1]}</span>{" "}
+                <span className="text-accent-green">{t("heroCodeStatus").split(" ")[2]}</span>{" "}
                 <span className="inline-block w-2 h-3.5 bg-accent-green align-middle animate-blink" />
               </div>
             </div>

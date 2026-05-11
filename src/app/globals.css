@@ -28,13 +28,13 @@
 }
 
 [data-theme='light'] {
-  --bg: #F8FAFC;
-  --bg-secondary: #F1F5F9;
-  --bg-tertiary: #E2E8F0;
+  --bg: #E2E8F0;
+  --bg-secondary: #FFFFFF;
+  --bg-tertiary: #FFFFFF;
   --text-primary: #0F172A;
-  --text-muted: #475569;
-  --border-accent: rgba(0, 229, 160, 0.3);
-  --border-dim: rgba(0, 0, 0, 0.08);
+  --text-muted: #334155;
+  --border-accent: rgba(0, 229, 160, 0.4);
+  --border-dim: rgba(0, 0, 0, 0.1);
 }
 
 :root {
@@ -69,13 +69,17 @@ body {
 .glow {
   position: absolute;
   border-radius: 50%;
-  filter: blur(120px);
+  filter: blur(100px);
   pointer-events: none;
-  opacity: 0.35;
+  opacity: 0.3;
+  will-change: transform, filter;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
 }
 
 [data-theme='light'] .glow {
-  opacity: 0.15;
+  opacity: 0.12;
+  filter: blur(80px);
 }
 
 @keyframes blink {
@@ -94,4 +98,5 @@ body {
 
 .animate-ticker {
   animation: ticker 22s linear infinite;
+  will-change: transform;
 }

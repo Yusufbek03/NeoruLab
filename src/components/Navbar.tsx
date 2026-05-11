@@ -18,7 +18,7 @@ export default function Navbar() {
     { name: t("services"), href: "#services", id: "services" },
     { name: t("cases"), href: "#cases", id: "cases" },
     { name: t("process"), href: "#process", id: "process" },
-    { name: t("blog"), href: "#blog", id: "blog" },
+    { name: language === 'ru' ? 'О нас' : 'Biz haqimizda', href: "#about", id: "about" },
     { name: t("contact"), href: "#contact", id: "contact" },
   ];
 

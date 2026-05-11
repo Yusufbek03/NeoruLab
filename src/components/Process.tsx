@@ -35,8 +35,8 @@ export default function Process() {
         <span className="font-mono text-[11px] font-semibold text-accent-green tracking-[0.15em] uppercase mb-3 block">
           {t("howWeWork")}
         </span>
-        <h2 className="font-syne text-[clamp(28px,3.5vw,48px)] font-extrabold leading-[1.1] tracking-tight">
-          {t("transparentProcess").split(" ")[0]} <span className="text-accent-green">{t("transparentProcess").split(" ")[1]}</span>
+        <h2 className="font-syne text-[clamp(28px,3.5vw,48px)] font-extrabold leading-[1.1] tracking-tight text-text-primary">
+          {t("transparentProcess1")} <span className="text-accent-green">{t("transparentProcess2")}</span>
         </h2>
       </div>
 
@@ -55,7 +55,7 @@ export default function Process() {
             <div className="w-16 h-16 rounded-full bg-bg-secondary border border-border-accent flex items-center justify-center font-syne text-[20px] font-extrabold text-accent-green mx-auto mb-7 relative z-10 transition-colors group-hover:bg-accent-green group-hover:text-black group-hover:border-accent-green">
               {step.id}
             </div>
-            <h3 className="font-syne text-[16px] font-bold mb-2.5">{step.title}</h3>
+            <h3 className="font-syne text-[16px] font-bold mb-2.5 text-text-primary">{step.title}</h3>
             <p className="text-[13px] text-text-muted leading-[1.75]">{step.desc}</p>
           </motion.div>
         ))}

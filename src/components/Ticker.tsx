@@ -3,24 +3,16 @@
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function Ticker() {
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
 
-  const items = language === "ru" ? [
-    "Сайты",
-    "Telegram боты",
-    "AI-автоматизация",
-    "GPT-агенты",
-    "n8n / Make",
-    "React / Next.js",
-    "CRM-интеграции",
-  ] : [
-    "Saytlar",
-    "Telegram botlar",
-    "AI-avtomatlashtirish",
-    "GPT-agentlar",
-    "n8n / Make",
-    "React / Next.js",
-    "CRM integratsiyalari",
+  const items = [
+    t("tick1"),
+    t("tick2"),
+    t("tick3"),
+    t("tick4"),
+    t("tick5"),
+    t("tick6"),
+    t("tick7"),
   ];
 
   // Double the items for seamless scrolling

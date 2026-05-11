@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function Footer() {
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
 
   const socialLinks = [
     { name: "Telegram", icon: "✈", href: "#" },
@@ -17,15 +17,15 @@ export default function Footer() {
     t("srv1Title"),
     t("srv2Title"),
     t("srv3Title"),
-    language === "ru" ? "GPT-агенты" : "GPT-agentlar",
-    language === "ru" ? "CRM-интеграции" : "CRM integratsiyalari",
+    t("srvGPT"),
+    t("srvCRM"),
   ];
 
   const companyLinks = [
-    { name: language === "ru" ? "О нас" : "Biz haqimizda", href: "#" },
+    { name: t("about"), href: "#" },
     { name: t("cases"), href: "#cases" },
     { name: t("blog"), href: "#blog" },
-    { name: language === "ru" ? "Карьера" : "Karyera", href: "#" },
+    { name: t("careers"), href: "#" },
     { name: t("contact"), href: "#contact" },
   ];
 
@@ -74,7 +74,7 @@ export default function Footer() {
         </div>
 
         <div>
-          <h5 className="font-syne text-[14px] font-bold mb-5 text-text-primary">{language === "ru" ? "Компания" : "Kompaniya"}</h5>
+          <h5 className="font-syne text-[14px] font-bold mb-5 text-text-primary">{t("company")}</h5>
           <ul className="flex flex-col gap-3">
             {companyLinks.map((link) => (
               <li key={link.name}>
@@ -94,7 +94,7 @@ export default function Footer() {
           <div className="flex mt-3">
             <input
               type="email"
-              placeholder="your@email.uz"
+              placeholder={t("language") === "ru" ? "your@email.ru" : "your@email.uz"}
               className="flex-1 bg-bg-secondary border border-border-dim rounded-l-md px-3.5 py-2.5 text-[13px] text-text-primary outline-none focus:border-accent-green placeholder:text-[#2D3A47]"
             />
             <button className="px-4 bg-accent-green text-black rounded-r-md font-bold text-[14px] transition-colors hover:bg-accent-green-dark">
