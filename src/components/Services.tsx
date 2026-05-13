@@ -57,9 +57,6 @@ export default function Services({ data }: { data?: ServiceData[] }) {
             >
               <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-accent-green to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
               
-              <div className="w-[52px] h-[52px] rounded-xl bg-accent-green/8 border border-border-accent flex items-center justify-center text-[22px] mb-6">
-                {service.icon}
-              </div>
               <h3 className="font-syne text-[20px] font-bold mb-3">{service.title}</h3>
               <p className="text-[14px] text-text-muted leading-[1.8]">{service.desc}</p>
               

@@ -6,7 +6,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { submitLead } from "@/app/actions";
 import { useLanguage } from "@/context/LanguageContext";
-import { Mail, Send, Video, MessageCircle } from "lucide-react";
 
 export default function Contact() {
   const { t } = useLanguage();
@@ -46,10 +45,10 @@ export default function Contact() {
   };
 
   const socials = [
-    { name: "Email", icon: <Mail size={16} />, href: "mailto:hello@neurulab.ru", label: "hello@neurulab.ru" },
-    { name: "Telegram", icon: <Send size={16} />, href: "https://t.me/neurulab", label: "@neurulab" },
-    { name: "Instagram", icon: <MessageCircle size={16} />, href: "#", label: "@neurulab" },
-    { name: "TikTok", icon: <Video size={16} />, href: "#", label: "@neurulab" },
+    { name: "Email", icon: "/icons/gmail.svg", href: "mailto:hello@neurulab.ru", label: "hello@neurulab.ru" },
+    { name: "Telegram", icon: "/icons/telegram.svg", href: "https://t.me/neurulab", label: "@neurulab" },
+    { name: "Instagram", icon: "/icons/Instagram.svg", href: "#", label: "@neurulab" },
+    { name: "TikTok", icon: "/icons/tiktok.svg", href: "#", label: "@neurulab" },
   ];
 
   return (
@@ -76,8 +75,11 @@ export default function Contact() {
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 p-3 rounded-xl border border-border-dim bg-bg-secondary/30 transition-all hover:border-accent-green hover:bg-bg-secondary group"
               >
-                <div className="w-9 h-9 rounded-lg border border-border-accent flex items-center justify-center text-[16px] bg-bg-tertiary/50 group-hover:text-accent-green transition-colors">
-                  {social.icon}
+                <div className="w-9 h-9 rounded-lg border border-border-accent flex items-center justify-center bg-bg-tertiary/50 group-hover:bg-accent-green transition-colors">
+                  {/* Removed filters, relying on original SVG colors which should be black/dark. 
+                      If icons are black, they are visible on white. 
+                      If icons are white, I would need a filter only in dark mode. */}
+                  <img src={social.icon} alt={social.name} className="w-5 h-5 transition-transform group-hover:invert dark:invert" />
                 </div>
                 <div className="flex flex-col">
                   <span className="text-[10px] text-text-muted uppercase font-mono">{social.name}</span>
@@ -133,9 +135,12 @@ export default function Contact() {
                 className={`bg-bg-tertiary border ${errors.service ? 'border-red-500/50' : 'border-border-dim'} rounded-lg px-4 py-3 font-sans text-[14px] text-text-primary outline-none focus:border-accent-green transition-colors appearance-none cursor-pointer`}
               >
                 <option value="" className="bg-bg-tertiary">{t("formSelect")}</option>
-                <option value="Разработка сайта" className="bg-bg-tertiary">{t("srv1Title")}</option>
-                <option value="Telegram-бот" className="bg-bg-tertiary">{t("srv2Title")}</option>
+                <option value="Разработка сайтов" className="bg-bg-tertiary">{t("srv1Title")}</option>
+                <option value="Telegram-боты" className="bg-bg-tertiary">{t("srv2Title")}</option>
                 <option value="AI-автоматизация" className="bg-bg-tertiary">{t("srv3Title")}</option>
+                <option value="Дизайн и графика" className="bg-bg-tertiary">{t("srv4Title")}</option>
+                <option value="Digital-маркетинг" className="bg-bg-tertiary">{t("srv5Title")}</option>
+                <option value="Медиа-продакшн" className="bg-bg-tertiary">{t("srv6Title")}</option>
                 <option value="Несколько услуг" className="bg-bg-tertiary">{t("formMulti")}</option>
               </select>
               {errors.service && <span className="text-red-500 text-[10px] font-mono">{errors.service.message}</span>}

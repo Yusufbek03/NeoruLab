@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <radialGradient id="greenGradient" cx="256" cy="256" r="256" gradientUnits="userSpaceOnUse">
+      <stop offset="0" style="stop-color:#00E5A0"/>
+      <stop offset="1" style="stop-color:#00C488"/>
+    </radialGradient>
+  </defs>
+  <path fill="url(#greenGradient)" d="M449.861,76.565h-14.912L256.002,218.26L77.045,76.565H62.134      c-24.693,0-44.737,20.094-44.737,44.858v269.152c0,24.759,20.044,44.859,44.737,44.859h14.911v-279.74l178.957,138.014      l178.947-138.047v279.773h14.912c24.699,0,44.742-20.101,44.742-44.859V121.424C494.604,96.66,474.561,76.565,449.861,76.565      L449.861,76.565z"/>
+</svg>

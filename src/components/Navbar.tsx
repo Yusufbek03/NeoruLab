@@ -12,15 +12,14 @@ export default function Navbar() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => setMounted(true), []);
-
-  const navLinks = [
-    { name: t("home"), href: "#home", id: "home" },
-    { name: t("services"), href: "#services", id: "services" },
-    { name: t("cases"), href: "#cases", id: "cases" },
-    { name: t("process"), href: "#process", id: "process" },
-    { name: language === 'ru' ? 'О нас' : 'Biz haqimizda', href: "#about", id: "about" },
-    { name: t("contact"), href: "#contact", id: "contact" },
-  ];
+const navLinks = [
+  { name: t("home"), href: "/#home", id: "home" },
+  { name: t("services"), href: "/#services", id: "services" },
+  { name: t("cases"), href: "/#cases", id: "cases" },
+  { name: t("process"), href: "/#process", id: "process" },
+  { name: language === 'ru' ? 'О нас' : 'Biz haqimizda', href: "/#about", id: "about" },
+  { name: t("contact"), href: "/#contact", id: "contact" },
+];
 
   if (!mounted) return null;
 
@@ -79,7 +78,7 @@ export default function Navbar() {
         </button>
 
         <Link
-          href="#contact"
+          href="/#contact"
           className="hidden sm:inline-flex items-center gap-[7px] px-[22px] py-[9px] rounded-md font-sans text-[13.5px] font-semibold no-underline bg-accent-green text-black transition-all hover:bg-accent-green-dark hover:-translate-y-px hover:shadow-[0_0_24px_rgba(0,229,160,0.4)]"
         >
           {t("discuss")}

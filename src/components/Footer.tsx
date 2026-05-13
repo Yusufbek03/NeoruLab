@@ -7,10 +7,10 @@ export default function Footer() {
   const { t } = useLanguage();
 
   const socialLinks = [
-    { name: "Telegram", icon: "✈", href: "#" },
-    { name: "LinkedIn", icon: "in", href: "#" },
-    { name: "YouTube", icon: "▶", href: "#" },
-    { name: "Twitter", icon: "𝕏", href: "#" },
+    { name: "Telegram", icon: "/icons/telegram.svg", href: "https://t.me/neurulab" },
+    { name: "Instagram", icon: "/icons/Instagram.svg", href: "#" },
+    { name: "TikTok", icon: "/icons/tiktok.svg", href: "#" },
+    { name: "Email", icon: "/icons/gmail.svg", href: "mailto:hello@neurulab.ru" },
   ];
 
   const serviceLinks = [
@@ -52,9 +52,9 @@ export default function Footer() {
               <Link
                 key={soc.name}
                 href={soc.href}
-                className="w-9 h-9 rounded-lg border border-border-dim text-text-muted flex items-center justify-center text-[13px] transition-all hover:border-accent-green hover:text-accent-green"
+                className="w-9 h-9 rounded-lg border border-border-dim text-text-muted flex items-center justify-center transition-all hover:border-accent-green hover:bg-accent-green group"
               >
-                {soc.icon}
+                <img src={soc.icon} alt={soc.name} className="w-4 h-4 transition-all group-hover:invert dark:invert" />
               </Link>
             ))}
           </div>

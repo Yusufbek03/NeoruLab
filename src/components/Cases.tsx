@@ -90,7 +90,7 @@ export default function Cases({ data }: { data?: CaseData[] }) {
             </div>
             <h3 className="font-syne text-[18px] font-bold mb-2 text-text-primary">{bigCase.title}</h3>
             <p className="text-[13px] text-text-muted leading-[1.7]">{bigCase.desc}</p>
-            <Link href="#" className="inline-flex items-center gap-1.5 mt-4 font-mono text-[12px] text-accent-green no-underline group-hover:gap-2.5 transition-all">
+            <Link href={`/cases/${bigCase.id}`} className="inline-flex items-center gap-1.5 mt-4 font-mono text-[12px] text-accent-green no-underline group-hover:gap-2.5 transition-all">
               {t("viewCase")} →
             </Link>
           </div>
@@ -148,7 +148,7 @@ export default function Cases({ data }: { data?: CaseData[] }) {
                 </div>
                 <h3 className="font-syne text-[18px] font-bold mb-2 text-text-primary">{item.title}</h3>
                 <p className="text-[13px] text-text-muted leading-[1.7]">{item.desc}</p>
-                <Link href="#" className="inline-flex items-center gap-1.5 mt-4 font-mono text-[12px] text-accent-green no-underline group-hover:gap-2.5 transition-all">
+                <Link href={`/cases/${item.id}`} className="inline-flex items-center gap-1.5 mt-4 font-mono text-[12px] text-accent-green no-underline group-hover:gap-2.5 transition-all">
                   {t("viewCase")} →
                 </Link>
               </div>

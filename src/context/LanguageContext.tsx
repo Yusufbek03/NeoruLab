@@ -19,7 +19,6 @@ const translations: Record<Language, Record<string, string>> = {
     services: "Услуги",
     cases: "Кейсы",
     process: "Процесс",
-    blog: "Блог",
     contact: "Контакты",
     discuss: "Обсудить проект",
     
@@ -62,6 +61,12 @@ const translations: Record<Language, Record<string, string>> = {
     srv3Item2: "Автоматизация на n8n / Make",
     srv3Item3: "Парсинг и обработка данных",
     srv3Item4: "RAG-системы на базе знаний",
+    srv4Title: "Дизайн и графика",
+    srv4Desc: "Профессиональный UX/UI дизайн сайтов и продающая графика для вашего бизнеса и маркетплейсов.",
+    srv5Title: "Digital-marketing",
+    srv5Desc: "Настройка таргетированной рекламы в Telegram, Instagram, VK и Яндекс. Директ для роста продаж.",
+    srv6Title: "Медиа-продакшн",
+    srv6Desc: "Профессиональный видеомонтаж, создание Reels, подкастов и обучающих видео.",
     srvGPT: "GPT-агенты",
     srvCRM: "CRM-интеграции",
     
@@ -134,11 +139,6 @@ const translations: Record<Language, Record<string, string>> = {
     chatbotHi: "Привет! Я AI-ассистент Neoru. 👋",
     chatbotConsult: "Хочу консультацию",
     
-    // Blog
-    ourBlog: "Наш",
-    blogTitle: "блог",
-    allArticles: "Все статьи",
-    
     // Ticker
     tick1: "Сайты",
     tick2: "Telegram боты",
@@ -165,7 +165,6 @@ const translations: Record<Language, Record<string, string>> = {
     services: "Xizmatlar",
     cases: "Keyslar",
     process: "Jarayon",
-    blog: "Blog",
     contact: "Kontaktlar",
     discuss: "Loyihani muhokama qilish",
     
@@ -208,6 +207,12 @@ const translations: Record<Language, Record<string, string>> = {
     srv3Item2: "n8n / Make yordamida avtomatlashtirish",
     srv3Item3: "Ma'lumotlarni yig'ish va qayta ishlash",
     srv3Item4: "Bilimlar bazasi asosidagi RAG-tizimlar",
+    srv4Title: "Dizayn va grafika",
+    srv4Desc: "Saytlar uchun professional UX/UI dizayn va biznesingiz hamda marketpleyslar uchun sotuvchi grafikalar.",
+    srv5Title: "Digital-marketing",
+    srv5Desc: "Telegram, Instagram, VK va Yandex Direct-da savdoni oshirish uchun maqsadli reklamalarni sozlash.",
+    srv6Title: "Media-production",
+    srv6Desc: "Professional video montaj, Reels, podkastlar va ta'lim videolarini yaratish.",
     srvGPT: "GPT-agentlar",
     srvCRM: "CRM integratsiyalari",
     
@@ -279,11 +284,6 @@ const translations: Record<Language, Record<string, string>> = {
     viewCase: "Keysni ko'rish",
     chatbotHi: "Salom! Men Neoru AI-yordamchisiman. 👋",
     chatbotConsult: "Maslahat olmoqchiman",
-    
-    // Blog
-    ourBlog: "Bizning",
-    blogTitle: "blog",
-    allArticles: "Barcha maqolalar",
     
     // Ticker
     tick1: "Saytlar",

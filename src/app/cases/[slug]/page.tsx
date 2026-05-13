@@ -1,12 +1,12 @@
 import { getContentBySlug } from "@/lib/content";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import BlogContent from "@/components/BlogContent";
+import CaseContent from "@/components/CaseContent";
 import { notFound } from "next/navigation";
 
-export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function CaseStudyPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const post = await getContentBySlug("blog", slug);
+  const post = await getContentBySlug("cases", slug);
 
   if (!post) {
     notFound();
@@ -15,7 +15,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   return (
     <main className="min-h-screen">
       <Navbar />
-      <BlogContent post={post} />
+      <CaseContent post={post} />
       <Footer />
     </main>
   );
