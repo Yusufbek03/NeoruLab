@@ -4,6 +4,7 @@ import { useLanguage } from "@/context/LanguageContext";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 interface ContentProps {
   post: {
@@ -16,11 +17,13 @@ interface ContentProps {
     date_uz: string;
     icon: string;
     bg: string;
+    url?: string;
+    image?: string;
   };
 }
 
 export default function CaseContent({ post }: ContentProps) {
-  const { language } = useLanguage();
+  const { language, t } = useLanguage();
   const router = useRouter();
 
   const title = language === "ru" ? post.title_ru : post.title_uz;
@@ -37,12 +40,25 @@ export default function CaseContent({ post }: ContentProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <button 
-            onClick={() => router.back()}
-            className="inline-flex items-center gap-2 text-accent-green font-mono text-[12px] mb-10 hover:underline transition-all cursor-pointer"
-          >
-            ← {language === "ru" ? "Назад" : "Orqaga"}
-          </button>
+          <div className="flex justify-between items-center mb-10">
+            <button 
+              onClick={() => router.back()}
+              className="inline-flex items-center gap-2 text-accent-green font-mono text-[12px] hover:underline transition-all cursor-pointer"
+            >
+              ← {language === "ru" ? "Назад" : "Orqaga"}
+            </button>
+
+            {post.url && (
+              <a 
+                href={post.url.startsWith('http') ? post.url : `https://${post.url}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-accent-green text-black font-syne font-bold text-[13px] hover:scale-105 active:scale-95 transition-all shadow-[0_10px_20px_rgba(40,202,65,0.2)]"
+              >
+                {t("visitWebsite")} ↗
+              </a>
+            )}
+          </div>
 
           <div className="flex items-center gap-4 mb-8">
             <span className="font-mono text-[11px] px-3 py-1 rounded-full bg-accent-green/10 text-accent-green border border-accent-green/20 uppercase tracking-widest">
@@ -57,8 +73,19 @@ export default function CaseContent({ post }: ContentProps) {
             {title}
           </h1>
 
-          <div className={`w-full ${post.bg} h-[320px] rounded-3xl flex items-center justify-center text-[120px] mb-16 shadow-[0_20px_50px_rgba(0,0,0,0.3)]`}>
-            {post.icon}
+          <div className={`w-full overflow-hidden rounded-3xl mb-16 shadow-[0_20px_50px_rgba(0,0,0,0.3)] ${post.image ? '' : `${post.bg} h-[320px] flex items-center justify-center text-[120px]`}`}>
+            {post.image ? (
+              <Image 
+                src={post.image} 
+                alt={title} 
+                width={1200}
+                height={675}
+                priority
+                className="w-full h-auto object-cover"
+              />
+            ) : (
+              post.icon
+            )}
           </div>
           
           <div 

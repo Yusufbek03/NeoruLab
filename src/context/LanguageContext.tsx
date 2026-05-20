@@ -136,6 +136,8 @@ const translations: Record<Language, Record<string, string>> = {
     casesTitle: "кейсы",
     allProjects: "Все проекты",
     viewCase: "Смотреть кейс",
+    visitWebsite: "Перейти на сайт",
+    live: "Демо",
     chatbotHi: "Привет! Я AI-ассистент Neoru. 👋",
     chatbotConsult: "Хочу консультацию",
     
@@ -151,6 +153,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Footer
     company: "Компания",
     about: "О нас",
+    blog: "Блог",
     careers: "Карьера",
     footerDesc: "Цифровое агентство нового поколения. Строим сайты, ботов и AI-системы, которые работают на ваш бизнес 24/7.",
     newsletter: "Рассылка",
@@ -282,6 +285,8 @@ const translations: Record<Language, Record<string, string>> = {
     casesTitle: "keyslarimiz",
     allProjects: "Barcha loyihalar",
     viewCase: "Keysni ko'rish",
+    visitWebsite: "Saytga o'tish",
+    live: "Demo",
     chatbotHi: "Salom! Men Neoru AI-yordamchisiman. 👋",
     chatbotConsult: "Maslahat olmoqchiman",
     
@@ -297,6 +302,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Footer
     company: "Kompaniya",
     about: "Biz haqimizda",
+    blog: "Blog",
     careers: "Karyera",
     footerDesc: "Yangi avlod raqamli agentligi. Biznesingiz uchun 24/7 ishlaydigan saytlar, botlar va AI tizimlarini quramiz.",
     newsletter: "Xabarnoma",

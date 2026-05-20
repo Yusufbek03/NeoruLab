@@ -4,13 +4,13 @@ import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function Footer() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const socialLinks = [
-    { name: "Telegram", icon: "/icons/telegram.svg", href: "https://t.me/neurulab" },
+    { name: "Telegram", icon: "/icons/telegram.svg", href: "https://t.me/neorulab" },
     { name: "Instagram", icon: "/icons/Instagram.svg", href: "#" },
     { name: "TikTok", icon: "/icons/tiktok.svg", href: "#" },
-    { name: "Email", icon: "/icons/gmail.svg", href: "mailto:hello@neurulab.ru" },
+    { name: "Email", icon: "/icons/gmail.svg", href: "mailto:hello@neorulab.ru" },
   ];
 
   const serviceLinks = [
@@ -22,11 +22,11 @@ export default function Footer() {
   ];
 
   const companyLinks = [
-    { name: t("about"), href: "#" },
-    { name: t("cases"), href: "#cases" },
-    { name: t("blog"), href: "#blog" },
-    { name: t("careers"), href: "#" },
-    { name: t("contact"), href: "#contact" },
+    { name: t("about"), href: "/#about" },
+    { name: t("cases"), href: "/#cases" },
+    { name: t("blog"), href: "/#blog" },
+    { name: t("careers"), href: "/#careers" },
+    { name: t("contact"), href: "/#contact" },
   ];
 
   return (
@@ -94,7 +94,7 @@ export default function Footer() {
           <div className="flex mt-3">
             <input
               type="email"
-              placeholder={t("language") === "ru" ? "your@email.ru" : "your@email.uz"}
+              placeholder={language === "ru" ? "your@email.ru" : "your@email.uz"}
               className="flex-1 bg-bg-secondary border border-border-dim rounded-l-md px-3.5 py-2.5 text-[13px] text-text-primary outline-none focus:border-accent-green placeholder:text-[#2D3A47]"
             />
             <button className="px-4 bg-accent-green text-black rounded-r-md font-bold text-[14px] transition-colors hover:bg-accent-green-dark">

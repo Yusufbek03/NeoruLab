@@ -45,10 +45,10 @@ export default function Contact() {
   };
 
   const socials = [
-    { name: "Email", icon: "/icons/gmail.svg", href: "mailto:hello@neurulab.ru", label: "hello@neurulab.ru" },
-    { name: "Telegram", icon: "/icons/telegram.svg", href: "https://t.me/neurulab", label: "@neurulab" },
-    { name: "Instagram", icon: "/icons/Instagram.svg", href: "#", label: "@neurulab" },
-    { name: "TikTok", icon: "/icons/tiktok.svg", href: "#", label: "@neurulab" },
+    { name: "Email", icon: "/icons/gmail.svg", href: "mailto:hello@neorulab.ru", label: "hello@neorulab.ru" },
+    { name: "Telegram", icon: "/icons/telegram.svg", href: "https://t.me/neorulab", label: "@neorulab" },
+    { name: "Instagram", icon: "/icons/Instagram.svg", href: "#", label: "@neorulab" },
+    { name: "TikTok", icon: "/icons/tiktok.svg", href: "#", label: "@neorulab" },
   ];
 
   return (

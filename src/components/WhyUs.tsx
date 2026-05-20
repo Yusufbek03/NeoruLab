@@ -35,7 +35,7 @@ export default function WhyUs() {
 
   return (
     <section className="section bg-bg overflow-hidden px-6 lg:px-[60px] py-[100px] relative">
-      <div className="glow w-[500px] h-[500px] bg-accent-green top-[-100px] left-[-100px] opacity-10" />
+      <div className="glow glow-green w-[500px] h-[500px] top-[-100px] left-[-100px] opacity-10" />
       
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center relative z-10">
         <div>

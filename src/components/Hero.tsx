@@ -24,8 +24,8 @@ export default function Hero() {
   return (
     <section id="home" className="relative overflow-hidden min-h-[calc(100vh-68px)] flex items-center px-6 lg:px-[60px] py-20">
       <div className="grid-bg" />
-      <div className="glow w-[600px] h-[600px] bg-accent-green top-[-200px] right-[-100px]" />
-      <div className="glow w-[400px] h-[400px] bg-accent-cyan bottom-[-100px] left-[200px] opacity-15" />
+      <div className="glow glow-green w-[600px] h-[600px] top-[-200px] right-[-100px]" />
+      <div className="glow glow-cyan w-[400px] h-[400px] bottom-[-100px] left-[200px] opacity-15" />
 
       <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-[60px] items-center w-full">
         <div className="hero-text">

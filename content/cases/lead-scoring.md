@@ -1,12 +1,35 @@
 ---
-title_ru: "Lead Scoring для отдела продаж"
-title_uz: "Savdo bo'limi uchun Lead Scoring"
-desc_ru: "AI автоматически скорит входящие заявки и уведомляет менеджеров. Скорость обработки выросла в 8 раз."
-desc_uz: "AI kelayotgan arizalarni avtomatik ravishda baholaydi va menejerlarni xabardor qiladi. Qayta ishlash tezligi 8 baravarga oshdi."
-tags_ru: ["AI-автоматизация", "n8n", "LangChain"]
-tags_uz: ["AI-avtomatlashtirish", "n8n", "LangChain"]
-url: "automation.internal"
+title_ru: "Lead Scoring & CRM Automation"
+title_uz: "Lead Scoring va CRM Avtomatlashtirish"
+desc_ru: "Автоматическая квалификация лидов с помощью AI. Система определяет готовность к покупке и передает «горячих» клиентов менеджерам."
+desc_uz: "AI yordamida lidlarni avtomatik kvalifikatsiya qilish. Tizim sotib olishga tayyorlikni aniqlaydi va «issiq» mijozlarni menejerlarga uzatadi."
+category_ru: "Маркетинг и Автоматизация"
+category_uz: "Marketing va Avtomatlashtirish"
+date_ru: "Март 2024"
+date_uz: "Mart 2024"
+tags_ru: ["n8n", "OpenAI", "Bitrix24"]
+tags_uz: ["n8n", "OpenAI", "Bitrix24"]
+url: "internal.app"
+icon: "🎯"
+bg: "bg-green-500/10"
 type: "side"
 ---
 
-# Lead Scoring
+## О проекте
+Для крупного дистрибьютора электроники была создана система интеллектуального скоринга лидов. Ежедневно в компанию поступает более 500 заявок, и менеджерам было сложно приоритизировать работу.
+
+## Как это работает
+1. **Сбор данных**: Заявка из CRM (Bitrix24) попадает в сценарий n8n.
+2. **Анализ AI**: Модель OpenAI анализирует текст запроса, историю взаимодействий и профиль компании.
+3. **Присвоение балла**: Лиду присваивается балл от 1 до 100.
+4. **Уведомление**: Если балл выше 80, менеджер получает мгновенное уведомление в Telegram с пометкой "СРОЧНО".
+
+## Технологии
+- **n8n**: Оркестрация всех процессов и интеграций.
+- **OpenAI API**: Оценка качества лида на основе смыслового анализа.
+- **Webhook/API**: Бесшовная связь с CRM системой.
+
+## Эффект
+- Время реакции на «горячих» клиентов сократилось с **4 часов** до **5 минут**.
+- Конверсия из заявки в продажу выросла на **22%**.
+- Менеджеры перестали тратить время на спам и нецелевые запросы.

@@ -69,17 +69,23 @@ body {
 .glow {
   position: absolute;
   border-radius: 50%;
-  filter: blur(100px);
   pointer-events: none;
-  opacity: 0.3;
-  will-change: transform, filter;
+  opacity: 0.4;
+  will-change: transform;
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
 }
 
+.glow-green {
+  background: radial-gradient(circle, rgba(0, 229, 160, 0.45) 0%, rgba(0, 229, 160, 0) 70%);
+}
+
+.glow-cyan {
+  background: radial-gradient(circle, rgba(0, 212, 255, 0.35) 0%, rgba(0, 212, 255, 0) 70%);
+}
+
 [data-theme='light'] .glow {
-  opacity: 0.12;
-  filter: blur(80px);
+  opacity: 0.2;
 }
 
 @keyframes blink {

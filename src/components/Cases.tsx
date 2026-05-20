@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 
 interface CaseData {
@@ -13,6 +14,7 @@ interface CaseData {
   tags_ru: string[];
   tags_uz: string[];
   url: string;
+  image?: string;
   type: "big" | "side";
 }
 
@@ -25,6 +27,7 @@ export default function Cases({ data }: { data?: CaseData[] }) {
     desc: language === "ru" ? c.desc_ru : c.desc_uz,
     tags: language === "ru" ? c.tags_ru : c.tags_uz,
     url: c.url,
+    image: c.image,
     type: c.type,
   })) || [];
 
@@ -54,31 +57,41 @@ export default function Cases({ data }: { data?: CaseData[] }) {
           className="case-card bg-bg-tertiary border border-border-dim rounded-[14px] overflow-hidden group hover:border-accent-green/30 transition-colors"
         >
           <div className="h-[260px] bg-bg flex items-center justify-center relative overflow-hidden">
-            <div className="w-[88%] bg-[#0A0F14] rounded-lg border border-white/8 overflow-hidden">
-              <div className="flex items-center gap-1.5 px-3 py-2 bg-white/4 border-b border-white/6">
-                <div className="w-[7px] h-[7px] rounded-full bg-[#FF5F57]" />
-                <div className="w-[7px] h-[7px] rounded-full bg-[#FFBD2E]" />
-                <div className="w-[7px] h-[7px] rounded-full bg-[#28CA41]" />
-                <div className="flex-1 mx-2.5 h-4 bg-white/5 rounded px-2 font-mono text-[9px] text-text-muted flex items-center">
-                  {bigCase.url}
-                </div>
-              </div>
-              <div className="p-3 flex flex-col gap-[7px]">
-                <div className="flex gap-[7px]">
-                  <div className="flex-[1.5] h-20 bg-accent-green/8 rounded" />
-                  <div className="flex-1 flex flex-col gap-[7px]">
-                    <div className="h-[18px] bg-accent-green/8 rounded" />
-                    <div className="h-[12px] w-[60%] bg-accent-green/8 rounded" />
-                    <div className="h-6 w-[70%] bg-accent-green/20 rounded" />
+            {bigCase.image ? (
+              <Image 
+                src={bigCase.image} 
+                alt={bigCase.title} 
+                fill
+                sizes="(max-width: 1024px) 100vw, 60vw"
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            ) : (
+              <div className="w-[88%] bg-[#0A0F14] rounded-lg border border-white/8 overflow-hidden">
+                <div className="flex items-center gap-1.5 px-3 py-2 bg-white/4 border-b border-white/6">
+                  <div className="w-[7px] h-[7px] rounded-full bg-[#FF5F57]" />
+                  <div className="w-[7px] h-[7px] rounded-full bg-[#FFBD2E]" />
+                  <div className="w-[7px] h-[7px] rounded-full bg-[#28CA41]" />
+                  <div className="flex-1 mx-2.5 h-4 bg-white/5 rounded px-2 font-mono text-[9px] text-text-muted flex items-center">
+                    {bigCase.url}
                   </div>
                 </div>
-                <div className="flex gap-[7px]">
-                  <div className="flex-1 h-10 bg-accent-green/8 rounded" />
-                  <div className="flex-1 h-10 bg-accent-green/8 rounded" />
-                  <div className="flex-1 h-10 bg-accent-green/8 rounded" />
+                <div className="p-3 flex flex-col gap-[7px]">
+                  <div className="flex gap-[7px]">
+                    <div className="flex-[1.5] h-20 bg-accent-green/8 rounded" />
+                    <div className="flex-1 flex flex-col gap-[7px]">
+                      <div className="h-[18px] bg-accent-green/8 rounded" />
+                      <div className="h-[12px] w-[60%] bg-accent-green/8 rounded" />
+                      <div className="h-6 w-[70%] bg-accent-green/20 rounded" />
+                    </div>
+                  </div>
+                  <div className="flex gap-[7px]">
+                    <div className="flex-1 h-10 bg-accent-green/8 rounded" />
+                    <div className="flex-1 h-10 bg-accent-green/8 rounded" />
+                    <div className="flex-1 h-10 bg-accent-green/8 rounded" />
+                  </div>
                 </div>
               </div>
-            </div>
+            )}
           </div>
           <div className="p-6">
             <div className="flex gap-2 mb-3 flex-wrap">
@@ -90,9 +103,21 @@ export default function Cases({ data }: { data?: CaseData[] }) {
             </div>
             <h3 className="font-syne text-[18px] font-bold mb-2 text-text-primary">{bigCase.title}</h3>
             <p className="text-[13px] text-text-muted leading-[1.7]">{bigCase.desc}</p>
-            <Link href={`/cases/${bigCase.id}`} className="inline-flex items-center gap-1.5 mt-4 font-mono text-[12px] text-accent-green no-underline group-hover:gap-2.5 transition-all">
-              {t("viewCase")} →
-            </Link>
+            <div className="flex items-center gap-4 mt-4">
+              <Link href={`/cases/${bigCase.id}`} className="inline-flex items-center gap-1.5 font-mono text-[12px] text-accent-green no-underline hover:gap-2.5 transition-all">
+                {t("viewCase")} →
+              </Link>
+              {bigCase.url && (
+                <a 
+                  href={bigCase.url.startsWith('http') ? bigCase.url : `https://${bigCase.url}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 font-mono text-[12px] text-text-muted hover:text-white transition-colors"
+                >
+                  {t("live")} ↗
+                </a>
+              )}
+            </div>
           </div>
         </motion.div>
 
@@ -108,7 +133,15 @@ export default function Cases({ data }: { data?: CaseData[] }) {
               className="case-card bg-bg-tertiary border border-border-dim rounded-[14px] overflow-hidden group hover:border-accent-green/30 transition-colors"
             >
               <div className={`${idx === 0 ? 'h-[200px]' : 'h-[180px]'} bg-bg flex items-center justify-center relative overflow-hidden`}>
-                {idx === 0 ? (
+                {item.image ? (
+                  <Image 
+                    src={item.image} 
+                    alt={item.title} 
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 40vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                ) : idx === 0 ? (
                   /* Chatbot Mockup */
                   <div className="w-[85%] bg-[#0A0F14] rounded-[10px] border border-white/8 overflow-hidden p-[14px] flex flex-col gap-2.5">
                     <div className="flex gap-2 items-end">
@@ -148,9 +181,21 @@ export default function Cases({ data }: { data?: CaseData[] }) {
                 </div>
                 <h3 className="font-syne text-[18px] font-bold mb-2 text-text-primary">{item.title}</h3>
                 <p className="text-[13px] text-text-muted leading-[1.7]">{item.desc}</p>
-                <Link href={`/cases/${item.id}`} className="inline-flex items-center gap-1.5 mt-4 font-mono text-[12px] text-accent-green no-underline group-hover:gap-2.5 transition-all">
-                  {t("viewCase")} →
-                </Link>
+                <div className="flex items-center gap-4 mt-4">
+                  <Link href={`/cases/${item.id}`} className="inline-flex items-center gap-1.5 font-mono text-[12px] text-accent-green no-underline hover:gap-2.5 transition-all">
+                    {t("viewCase")} →
+                  </Link>
+                  {item.url && (
+                    <a 
+                      href={item.url.startsWith('http') ? item.url : `https://${item.url}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 font-mono text-[12px] text-text-muted hover:text-white transition-colors"
+                    >
+                      {t("live")} ↗
+                    </a>
+                  )}
+                </div>
               </div>
             </motion.div>
           ))}

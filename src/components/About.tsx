@@ -42,6 +42,8 @@ export default function About() {
               muted 
               loop 
               playsInline 
+              width={380}
+              height={380}
               className="w-full h-full object-cover rounded-2xl"
             >
               <source src="/about-video.mp4" type="video/mp4" />
