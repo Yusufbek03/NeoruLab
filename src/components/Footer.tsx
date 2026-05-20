@@ -7,8 +7,8 @@ export default function Footer() {
   const { t, language } = useLanguage();
 
   const socialLinks = [
-    { name: "Telegram", icon: "/icons/telegram.svg", href: "https://t.me/neorulab" },
     { name: "Email", icon: "/icons/gmail.svg", href: "mailto:hello@neorulab.ru" },
+    { name: "Telegram", icon: "/icons/telegram.svg", href: "https://t.me/neorulab" },
   ];
 
   const serviceLinks = [

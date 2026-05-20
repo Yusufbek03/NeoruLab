@@ -68,7 +68,7 @@ export default function Contact() {
             {t("contactDesc")}
           </p>
           
-          <div className="mt-9 grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="mt-9 flex flex-col gap-4 max-w-[480px]">
             {socials.map((social) => (
               <a 
                 key={social.name} 
