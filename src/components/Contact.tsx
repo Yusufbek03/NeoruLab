@@ -49,7 +49,7 @@ export default function Contact() {
   };
 
   const socials = [
-    { name: "Email", icon: "/icons/gmail.svg", href: "mailto:neorulab@gmail.com", label: "neorulab@gmail.com" },
+    { name: "Email", icon: "/icons/gmail.svg", href: "https://mail.google.com/mail/?view=cm&fs=1&to=neorulab@gmail.com", label: "neorulab@gmail.com" },
     { name: "Telegram", icon: "/icons/telegram.svg", href: "https://t.me/neorulab", label: "@neorulab" },
   ];
 

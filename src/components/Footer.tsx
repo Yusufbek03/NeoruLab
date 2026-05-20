@@ -27,7 +27,7 @@ export default function Footer() {
   };
 
   const socialLinks = [
-    { name: "Email", icon: "/icons/gmail.svg", href: "mailto:neorulab@gmail.com" },
+    { name: "Email", icon: "/icons/gmail.svg", href: "https://mail.google.com/mail/?view=cm&fs=1&to=neorulab@gmail.com" },
     { name: "Telegram", icon: "/icons/telegram.svg", href: "https://t.me/neorulab" },
   ];
 
@@ -70,6 +70,8 @@ export default function Footer() {
               <Link
                 key={soc.name}
                 href={soc.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-9 h-9 rounded-lg border border-border-dim text-text-muted flex items-center justify-center transition-all hover:border-accent-green hover:bg-accent-green group"
               >
                 <img src={soc.icon} alt={soc.name} className="w-4 h-4 transition-all group-hover:invert dark:invert" />
