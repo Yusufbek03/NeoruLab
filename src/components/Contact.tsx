@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -9,6 +10,8 @@ import { useLanguage } from "@/context/LanguageContext";
 
 export default function Contact() {
   const { t } = useLanguage();
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [showError, setShowError] = useState(false);
 
   const formSchema = z.object({
     name: z.string().min(2, t("valName")),
@@ -34,14 +37,14 @@ export default function Contact() {
     try {
       const result = await submitLead(data);
       if (result.success) {
-        alert(t("formSuccess"));
+        setShowSuccess(true);
         reset();
       } else {
-        alert(t("formError"));
+        setShowError(true);
       }
     } catch (error) {
       console.error("Submission error:", error);
-      alert(t("formError"));
+      setShowError(true);
     }
   };
 
@@ -179,6 +182,132 @@ export default function Contact() {
           </form>
         </motion.div>
       </div>
+
+      <AnimatePresence>
+        {showSuccess && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md"
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              animate={{ 
+                scale: 1, 
+                opacity: 1, 
+                y: 0,
+                transition: { type: "spring", damping: 15, stiffness: 100 }
+              }}
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              className="bg-[#0b131a]/95 border border-border-dim rounded-2xl p-8 max-w-md w-full text-center relative overflow-hidden shadow-2xl"
+            >
+              {/* Decorative Glow */}
+              <div className="absolute -top-24 -left-24 w-48 h-48 rounded-full bg-accent-green/10 blur-3xl pointer-events-none" />
+              <div className="absolute -bottom-24 -right-24 w-48 h-48 rounded-full bg-accent-green/10 blur-3xl pointer-events-none" />
+
+              <div className="flex justify-center mb-6">
+                <div className="relative">
+                  <motion.div
+                    animate={{ scale: [1, 1.15, 1] }}
+                    transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+                    className="absolute inset-0 rounded-full bg-accent-green/20 blur-sm"
+                  />
+                  <div className="w-16 h-16 rounded-full bg-accent-green/10 border-2 border-accent-green flex items-center justify-center relative z-10">
+                    <svg className="w-8 h-8 text-accent-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                      <motion.path
+                        initial={{ pathLength: 0 }}
+                        animate={{ pathLength: 1 }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              <h3 className="font-syne text-2xl font-bold text-text-primary mb-3">
+                {t("formSuccessTitle")}
+              </h3>
+              <p className="text-[14px] text-text-muted leading-relaxed mb-6 font-sans">
+                {t("formSuccess")}
+              </p>
+
+              <button
+                onClick={() => setShowSuccess(false)}
+                className="w-full py-3.5 rounded-lg font-sans text-[14px] font-bold bg-accent-green text-black transition-all hover:bg-accent-green-dark hover:shadow-[0_0_16px_rgba(0,229,160,0.3)]"
+              >
+                {t("close")}
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {showError && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md"
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              animate={{ 
+                scale: 1, 
+                opacity: 1, 
+                y: 0,
+                transition: { type: "spring", damping: 15, stiffness: 100 }
+              }}
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              className="bg-[#0b131a]/95 border border-red-500/30 rounded-2xl p-8 max-w-md w-full text-center relative overflow-hidden shadow-2xl"
+            >
+              {/* Decorative Glow */}
+              <div className="absolute -top-24 -left-24 w-48 h-48 rounded-full bg-red-500/10 blur-3xl pointer-events-none" />
+              <div className="absolute -bottom-24 -right-24 w-48 h-48 rounded-full bg-red-500/10 blur-3xl pointer-events-none" />
+
+              <div className="flex justify-center mb-6">
+                <div className="relative">
+                  <motion.div
+                    animate={{ scale: [1, 1.15, 1] }}
+                    transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+                    className="absolute inset-0 rounded-full bg-red-500/20 blur-sm"
+                  />
+                  <div className="w-16 h-16 rounded-full bg-red-500/10 border-2 border-red-500 flex items-center justify-center relative z-10">
+                    <svg className="w-8 h-8 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                      <motion.path
+                        initial={{ pathLength: 0 }}
+                        animate={{ pathLength: 1 }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M6 18L18 6M6 6l12 12"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              <h3 className="font-syne text-2xl font-bold text-text-primary mb-3">
+                {t("formErrorTitle")}
+              </h3>
+              <p className="text-[14px] text-text-muted leading-relaxed mb-6 font-sans">
+                {t("formError")}
+              </p>
+
+              <button
+                onClick={() => setShowError(false)}
+                className="w-full py-3.5 rounded-lg font-sans text-[14px] font-bold bg-red-500 text-white transition-all hover:bg-red-600"
+              >
+                {t("close")}
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
