@@ -27,7 +27,7 @@ export default function Footer() {
   };
 
   const socialLinks = [
-    { name: "Email", icon: "/icons/gmail.svg", href: "mailto:hello@neorulab.ru" },
+    { name: "Email", icon: "/icons/gmail.svg", href: "mailto:neorulab@gmail.com" },
     { name: "Telegram", icon: "/icons/telegram.svg", href: "https://t.me/neorulab" },
   ];
 
