@@ -8,8 +8,6 @@ export default function Footer() {
 
   const socialLinks = [
     { name: "Telegram", icon: "/icons/telegram.svg", href: "https://t.me/neorulab" },
-    { name: "Instagram", icon: "/icons/Instagram.svg", href: "#" },
-    { name: "TikTok", icon: "/icons/tiktok.svg", href: "#" },
     { name: "Email", icon: "/icons/gmail.svg", href: "mailto:hello@neorulab.ru" },
   ];
 
