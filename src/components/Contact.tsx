@@ -14,6 +14,7 @@ export default function Contact() {
     name: z.string().min(2, t("valName")),
     company: z.string().optional(),
     contact: z.string().min(5, t("valContact")),
+    phone: z.string().min(7, t("valPhone")),
     service: z.string().min(1, t("valService")),
     message: z.string().min(10, t("valMessage")),
   });
@@ -118,14 +119,25 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className="flex flex-col gap-1.5">
-              <label className="font-mono text-[11px] text-text-muted tracking-wider uppercase">{t("formContact")}</label>
-              <input
-                {...register("contact")}
-                placeholder={t("phContact")}
-                className={`bg-bg-tertiary border ${errors.contact ? 'border-red-500/50' : 'border-border-dim'} rounded-lg px-4 py-3 font-sans text-[14px] text-text-primary outline-none focus:border-accent-green transition-colors placeholder:text-[#2D3A47]`}
-              />
-              {errors.contact && <span className="text-red-500 text-[10px] font-mono">{errors.contact.message}</span>}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="flex flex-col gap-1.5">
+                <label className="font-mono text-[11px] text-text-muted tracking-wider uppercase">{t("formContact")}</label>
+                <input
+                  {...register("contact")}
+                  placeholder={t("phContact")}
+                  className={`bg-bg-tertiary border ${errors.contact ? 'border-red-500/50' : 'border-border-dim'} rounded-lg px-4 py-3 font-sans text-[14px] text-text-primary outline-none focus:border-accent-green transition-colors placeholder:text-[#2D3A47]`}
+                />
+                {errors.contact && <span className="text-red-500 text-[10px] font-mono">{errors.contact.message}</span>}
+              </div>
+              <div className="flex flex-col gap-1.5">
+                <label className="font-mono text-[11px] text-text-muted tracking-wider uppercase">{t("formPhone")}</label>
+                <input
+                  {...register("phone")}
+                  placeholder={t("phPhone")}
+                  className={`bg-bg-tertiary border ${errors.phone ? 'border-red-500/50' : 'border-border-dim'} rounded-lg px-4 py-3 font-sans text-[14px] text-text-primary outline-none focus:border-accent-green transition-colors placeholder:text-[#2D3A47]`}
+                />
+                {errors.phone && <span className="text-red-500 text-[10px] font-mono">{errors.phone.message}</span>}
+              </div>
             </div>
 
             <div className="flex flex-col gap-1.5">

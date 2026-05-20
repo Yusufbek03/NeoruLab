@@ -113,6 +113,7 @@ const translations: Record<Language, Record<string, string>> = {
     formName: "ИМЯ",
     formCompany: "КОМПАНИЯ",
     formContact: "EMAIL / TELEGRAM",
+    formPhone: "ТЕЛЕФОН",
     formService: "ЧТО НУЖНО СДЕЛАТЬ?",
     formMessage: "РАССКАЖИТЕ О ЗАДАЧЕ",
     formSubmit: "Отправить заявку",
@@ -123,11 +124,13 @@ const translations: Record<Language, Record<string, string>> = {
     formError: "Произошла ошибка. Попробуйте снова.",
     valName: "Минимум 2 символа",
     valContact: "Введите email или @username",
+    valPhone: "Минимум 7 символов",
     valService: "Выберите услугу",
     valMessage: "Опишите задачу подробнее (минимум 10 символов)",
     phName: "Иван Иванов",
     phCompany: "ООО Рога и Копыта",
     phContact: "ivan@company.ru или @username",
+    phPhone: "+998 (90) 123-45-67",
     phMessage: "Опишите задачу, бюджет и сроки...",
     
     // Portfolio
@@ -262,6 +265,7 @@ const translations: Record<Language, Record<string, string>> = {
     formName: "ISM",
     formCompany: "KOMPANIYA",
     formContact: "EMAIL / TELEGRAM",
+    formPhone: "TELEFON",
     formService: "NIMA QILISH KERAK?",
     formMessage: "VAZIFA HAQIDA GAPIRIB BERING",
     formSubmit: "Ariza yuborish",
@@ -272,11 +276,13 @@ const translations: Record<Language, Record<string, string>> = {
     formError: "Xatolik yuz berdi. Qayta urinib ko'ring.",
     valName: "Kamida 2 ta belgi",
     valContact: "Email yoki @username kiriting",
+    valPhone: "Kamida 7 ta belgi",
     valService: "Xizmatni tanlang",
     valMessage: "Vazifa haqida batafsilroq yozing (kamida 10 ta belgi)",
     phName: "Ivan Ivanov",
     phCompany: "MChJ Super Biznes",
     phContact: "ivan@company.uz yoki @username",
+    phPhone: "+998 (90) 123-45-67",
     phMessage: "Vazifa, byudjet va muddatlarni yozing...",
     
     // Portfolio

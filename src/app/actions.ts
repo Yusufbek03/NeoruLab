@@ -6,6 +6,7 @@ const formSchema = z.object({
   name: z.string().min(2),
   company: z.string().optional(),
   contact: z.string().min(5),
+  phone: z.string().min(7),
   service: z.string().min(1),
   message: z.string().min(10),
 });
@@ -32,6 +33,7 @@ async function sendTelegramNotification(lead: z.infer<typeof formSchema>) {
 👤 <b>Имя:</b> ${escapeHtml(lead.name)}
 🏢 <b>Компания:</b> ${escapeHtml(lead.company || "Не указана")}
 📞 <b>Контакты:</b> ${escapeHtml(lead.contact)}
+📱 <b>Телефон:</b> ${escapeHtml(lead.phone)}
 💼 <b>Услуга:</b> ${escapeHtml(lead.service)}
 
 💬 <b>Сообщение:</b>
