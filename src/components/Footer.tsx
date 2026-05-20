@@ -40,10 +40,10 @@ export default function Footer() {
   ];
 
   const companyLinks = [
-    { name: t("about"), href: "/#about" },
+    { name: t("services"), href: "/#services" },
     { name: t("cases"), href: "/#cases" },
-    { name: t("blog"), href: "/#blog" },
-    { name: t("careers"), href: "/#careers" },
+    { name: t("process"), href: "/#process" },
+    { name: t("about"), href: "/#about" },
     { name: t("contact"), href: "/#contact" },
   ];
 
