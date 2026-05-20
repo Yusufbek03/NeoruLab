@@ -86,3 +86,39 @@ export async function submitLead(data: z.infer<typeof formSchema>) {
     return { success: false, message: "Ошибка при отправке. Попробуйте позже." };
   }
 }
+
+export async function subscribeNewsletter(email: string) {
+  const emailSchema = z.string().email();
+  try {
+    const validatedEmail = emailSchema.parse(email);
+    console.log("Backend newsletter subscription:", validatedEmail);
+
+    const botToken = process.env.TELEGRAM_BOT_TOKEN;
+    const chatId = process.env.TELEGRAM_CHAT_ID;
+
+    if (botToken && chatId) {
+      const text = `
+<b>📧 Новая подписка на рассылку NeoruLab!</b>
+
+📬 <b>Email:</b> ${escapeHtml(validatedEmail)}
+`;
+
+      await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          chat_id: chatId,
+          text: text,
+          parse_mode: "HTML",
+        }),
+      });
+    }
+
+    return { success: true };
+  } catch (error) {
+    console.error("Newsletter subscription error:", error);
+    return { success: false };
+  }
+}

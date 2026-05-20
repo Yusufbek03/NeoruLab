@@ -1,10 +1,30 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
+import { subscribeNewsletter } from "@/app/actions";
 
 export default function Footer() {
   const { t, language } = useLanguage();
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+
+    setStatus("loading");
+    const res = await subscribeNewsletter(email);
+    if (res.success) {
+      setStatus("success");
+      setEmail("");
+      setTimeout(() => setStatus("idle"), 5000);
+    } else {
+      setStatus("error");
+      setTimeout(() => setStatus("idle"), 5000);
+    }
+  };
 
   const socialLinks = [
     { name: "Email", icon: "/icons/gmail.svg", href: "mailto:hello@neorulab.ru" },
@@ -89,16 +109,38 @@ export default function Footer() {
           <p className="text-[13px] text-text-muted leading-[1.7]">
             {t("newsletterDesc")}
           </p>
-          <div className="flex mt-3">
+          <form onSubmit={handleSubscribe} className="flex mt-3 relative">
             <input
               type="email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              disabled={status === "loading"}
               placeholder={language === "ru" ? "your@email.ru" : "your@email.uz"}
-              className="flex-1 bg-bg-secondary border border-border-dim rounded-l-md px-3.5 py-2.5 text-[13px] text-text-primary outline-none focus:border-accent-green placeholder:text-[#2D3A47]"
+              className="flex-1 bg-bg-secondary border border-border-dim rounded-l-md px-3.5 py-2.5 text-[13px] text-text-primary outline-none focus:border-accent-green placeholder:text-[#2D3A47] disabled:opacity-55"
             />
-            <button className="px-4 bg-accent-green text-black rounded-r-md font-bold text-[14px] transition-colors hover:bg-accent-green-dark">
-              →
+            <button 
+              type="submit"
+              disabled={status === "loading"}
+              className="px-4 bg-accent-green text-black rounded-r-md font-bold text-[14px] transition-colors hover:bg-accent-green-dark disabled:opacity-55 flex items-center justify-center min-w-[44px]"
+            >
+              {status === "loading" ? (
+                <div className="w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin" />
+              ) : (
+                "→"
+              )}
             </button>
-          </div>
+          </form>
+          {status === "success" && (
+            <p className="text-[11px] text-accent-green mt-2 font-mono">
+              {t("newsletterSuccess")}
+            </p>
+          )}
+          {status === "error" && (
+            <p className="text-[11px] text-[#FF5A5A] mt-2 font-mono">
+              {t("newsletterError")}
+            </p>
+          )}
         </div>
       </div>
 
